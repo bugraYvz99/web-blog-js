@@ -24,9 +24,11 @@
         <a href="#">About</a>
         <a href="posts.html">Posts</a>
         <a href="#">Contact</a>
+        <a style ="display:none;" id="myblog" href="myblog.html"> My Blog </a>
       </div>
       <button class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
+        <button style="display: none;" id="logout-button">Logout</button>
       </button>
     </header>
 
@@ -34,9 +36,16 @@
         <div class="home-box">
             <h1>Welcome to your personal blog</h1>
             <p style="font-size: x-large;">You can post anything about with yourself</p>
+            <div>
+            
+              <form id="login-form">
+                <input type="text" id="username" placeholder="Enter your username">
+                <input type="password" id="password" placeholder="Password">
+                <button id="login" type="submit">Login</button>
+              </form>
         </div>
     </div>
- 
+    
 
     <script src="main.js"></script>
   </body>

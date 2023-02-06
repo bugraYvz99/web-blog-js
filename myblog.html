@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="global.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<body>
+    <header class="header">
+        <a href="main.html" class="logo">
+          <img src="images/logo.png" alt="logo" />
+        </a>
+        <div class="navbar-box">
+          <a href="main.html">Home</a>
+          <a href="#">About</a>
+          <a href="posts.html">Posts</a>
+          <a href="#">Contact</a>
+          <a class="active" href="myblog.html"> My Blog </a>
+          <button id="logout-button">Logout</button>
+        </div>
+        <button class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </header>
+ 
+ 
+    <h1>Welcome, <span id="greeting">{{username}}</span>!</h1>
+    <p>This is your personal blog space.</p>
+    <p>Feel free to share your thoughts and ideas with the world.</p>
+    
+    
+   
+  
+<script src="myblog.js"></script>
+</body>
+</html>
