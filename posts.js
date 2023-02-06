@@ -19,17 +19,28 @@ async function postsToInnerHtml() {
   }
   function getPostsToHtml() {
     posts.forEach(function (post) {
-      let postBox = document.querySelector(".posts");
-      let postDom = document.createElement("div");
-      let postUser = document.createElement("span");
+      let posts = document.querySelector(".posts");
+      let postBox = document.createElement("div");
+      postBox.classList.add("post-box");
+      let postUser = document.createElement("h1");
       postUser.classList.add("username");
-      postUser.innerText = getUserFromId(post.userId).name;
-      postDom.append(postUser);
-      postBox.append(postDom);
+      postUser.innerText = getUserFromId(post.userId).name + "-" + post.title;
+      postBox.append(postUser);
+      posts.append(postBox);
+      let postBody = document.createElement("div");
+      postBody.classList.add("post-body");
+      postBody.innerText = post.body;
+      postBox.append(postBody);
+      postBox.id = post.id;
     });
   }
 
-  console.log(getPostsToHtml());
+  getPostsToHtml();
 }
 
 postsToInnerHtml();
+
+function onloadPostHtml() {
+  preloader.style.display = "none";
+}
+

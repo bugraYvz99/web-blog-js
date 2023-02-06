@@ -51,3 +51,16 @@ html {
   color: #7449a3;
   box-shadow: -5px 10px 5px 0px rgba(0, 0, 0, 0.55);
 }
+.preloader{
+  
+  width: 20%;
+  height: 20%;
+  background-color:#7449a3;
+  position: fixed;
+  left: 50rem;
+  border-radius: 70rem;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/b6e0b072897469.5bf6e79950d23.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
