@@ -1,6 +1,7 @@
 async function postsToInnerHtml() {
   let users = [];
   let posts = [];
+  let imageUrls = [];
 
   await fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
@@ -12,48 +13,58 @@ async function postsToInnerHtml() {
     .then((data) => {
       posts = data;
     });
-
+  for (i = 0; i < posts.length; i++) {
+    imageUrls.push(`https://picsum.photos/id/${i}/300/200`);
+  }
   function getUserFromId(id) {
     let currentUser = users.find((user) => user.id === id);
     return currentUser;
   }
+
   function getPostsToHtml() {
-    posts.forEach(function (post) {
-      let posts = document.querySelector(".posts");
+    posts.forEach(function (post, index) {
+      let postsDiv = document.querySelector(".posts");
       let postBox = document.createElement("div");
       postBox.classList.add("post-box");
-      let upperDiv = document.createElement("div")
-      upperDiv.classList.add("upper-div")
+      let upperDiv = document.createElement("div");
+      upperDiv.classList.add("upper-div");
       let postTitle = document.createElement("h1");
       postTitle.classList.add("post-title");
-      postTitle.autocapitalize = post.title
-      postTitle.innerText = post.title;
-      upperDiv.append(postTitle)
+      let ttl = post.title;
+      postTitle.innerText = ttl[0].toUpperCase() + ttl.substring(1);
+
+      let imgDom = document.createElement("img");
+      imgDom.src = imageUrls[index];
+      imgDom.classList.add("post-img");
+      imgDom.setAttribute("style", "background:cover;");
+      upperDiv.append(imgDom);
+
+      upperDiv.append(postTitle);
       postBox.append(upperDiv);
+      
       let postBody = document.createElement("div");
       postBody.classList.add("post-body");
       postBody.innerText = post.body;
       postBox.append(postBody);
       postBox.id = post.id;
-      let lowerDiv = document.createElement("div")
-      lowerDiv.classList.add("lower-div")
-      let postUserName = document.createElement("h2");
-      postUserName.classList.add("post-username")
-      postUserName.innerText = "Author :"+getUserFromId(post.userId).name;
-      lowerDiv.append(postUserName)
-      postBox.append(lowerDiv)
-      let readMoreBtn= document.createElement("button")
-      readMoreBtn.classList.add("readmore-button")
-      readMoreBtn.innerText = "Read More";
-      readMoreBtn.onclick = function() {
-       
-        window.location.href = "detailedPost.html?UserId=" + post.userId + "?PostBody="+ post.body;
 
-       
-      }
-      postBox.append(readMoreBtn)
-      posts.append(postBox)
-      console.log(post)
+      let lowerDiv = document.createElement("div");
+      lowerDiv.classList.add("lower-div");
+      let postUserName = document.createElement("h2");
+      postUserName.classList.add("post-username");
+      postUserName.innerText = "Author :" + getUserFromId(post.userId).name;
+      lowerDiv.append(postUserName);
+      postBox.append(lowerDiv);
+      let readMoreBtn = document.createElement("button");
+      readMoreBtn.setAttribute("type", "submit");
+      readMoreBtn.classList.add("readmore-button");
+      readMoreBtn.innerText = "Read More";
+
+      readMoreBtn.onclick = function () {
+        window.location.href = `detailedPost.html?UserId=${post.userId}&PostBody=${post.body}&PostTitle=${post.title}`;
+      };
+      lowerDiv.append(readMoreBtn);
+      postsDiv.append(postBox);
     });
   }
 
@@ -63,9 +74,8 @@ async function postsToInnerHtml() {
 postsToInnerHtml();
 
 function onloadPostHtml() {
-  debugger
-    let preloader = document.getElementById("preloader")
-    preloader.style.display = "none";
+  let preloader = document.getElementById("preloader");
+  preloader.style.display = "none";
 }
 let myblog = document.getElementById("myblog");
 if (localStorage.getItem("loggedInUser") !== null) {

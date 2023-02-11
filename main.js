@@ -2,7 +2,9 @@ let myblog = document.getElementById("myblog");
 let logInBtn = document.getElementById("login");
 let logOutBtn = document.getElementById("logout-button");
 let myForm = document.getElementById("login-form")
-
+let searchBtn = document.querySelector(".search")
+let searchInput = document.querySelector(".hidden-search")
+console.log(searchBtn)
 document.getElementById("login-form").addEventListener("submit", async function (e) {
     e.preventDefault();
     let username = document.getElementById("username").value;
@@ -46,3 +48,8 @@ if (localStorage.getItem("loggedInUser") !== null) {
   logInBtn.style.display = "none";
   myForm.style.display = "none";
 }
+searchBtn.onclick = function () {
+  searchInput.classList.add("active-search")
+  searchInput.classList.remove("hidden-search")
+  
+};
