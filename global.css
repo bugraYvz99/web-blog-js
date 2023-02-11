@@ -1,3 +1,10 @@
+:root{
+  --background :#0A2647;
+  --header:#144272;
+  --content :#205295;
+  --text :#fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +15,7 @@
 }
 html {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #404258;
+  background-color: var(--background);
 }
 
 .logo img {
@@ -18,7 +25,7 @@ html {
   background: none;
 }
 .header {
-  background-color: #6B728E;
+  background-color: var(--header);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +37,7 @@ html {
 .header .navbar-box a {
   font-size: 1.5rem;
   margin: 0 1rem;
-  color: #f7f7f7;
+  color: var(--text);
   border-bottom: 0.13rem solid transparent;
   padding-bottom: 0rem;
 }
@@ -45,22 +52,22 @@ html {
 }
 
 .home {
-  border: 3px solid #50577A;
-  background-color: #50577A;
+  border: 3px solid var(--content);
+  background-image: linear-gradient(to right,var(--content)10%,var(--header)40%);
   padding: 0 7%;
   margin: 2rem 7%;
   display: inline-block;
   height: 24rem;
   width: 35rem;
   border-radius: 5rem;
-  color: #fff;
+  color:var(--text);
   box-shadow: -5px 10px 5px 0px rgba(0, 0, 0, 0.55);
 }
 .preloader{
   
   width: 20%;
   height: 20%;
-  background-color:#7449a3;
+  background-color:var(--content);
   position: fixed;
   left: 50rem;
   border-radius: 70rem;
@@ -71,5 +78,43 @@ html {
 }
 
 p , h1 {
-  color: #fff;
+  color: var(--text);
 }
+.search{
+  background: none  ;
+  
+}
+button {
+font-size: 1.3rem;
+cursor: pointer;
+margin-right: 7px;
+background-color: #dddddd;
+border-radius: 0.5rem;
+width: 6rem;
+height: 3rem;
+margin-left: 5rem;
+}
+input[type="text"].hidden-search {
+  opacity: 0;
+  width: 0;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  transition: width 1.5s ease-in-out;
+}
+
+input[type="text"].active-search {
+  width: 250px;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  transition: width 1.5s ease-in-out;
+}
+
+
