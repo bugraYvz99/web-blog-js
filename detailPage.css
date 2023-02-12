@@ -1,0 +1,19 @@
+.post-details{
+    border-top: 0.5rem solid var(--text);
+    position: relative;
+    color: rgb(247, 246, 244);
+    background-color: var(--content);
+    border-radius: 0.2rem;
+    
+    left: 10%;
+}
+.content-box{
+ display: grid;
+ grid-template-columns: 50% 30%;
+ 
+}
+.image{
+    height: 100%;
+    width: 100%;
+    image-rendering:optimizeQuality;
+}
