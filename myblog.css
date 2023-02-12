@@ -1,0 +1,48 @@
+html {
+  height: 150rem;
+}
+body {
+  height: 100%;
+}
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--content);
+  padding: 20px;
+}
+.add-button {
+  margin-top: 20px;
+}
+#save-post-button {
+  margin-top: 20px;
+}
+.post-card {
+  width: 50%;
+  padding: 20px;
+  box-shadow: 2px 2px 5px #ccc;
+  border-radius: 5px;
+  text-align: left;
+  margin-top: 10px;
+}
+.post-title {
+  margin-top: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: wheat;
+}
+span,
+p,
+h1 {
+  color: wheat;
+}
+#post-body-input {
+  width: 80%;
+  height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+#post-title-input {
+  margin-top: 25px;
+}

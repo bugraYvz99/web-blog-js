@@ -1,3 +1,5 @@
+let logOutBtn = document.querySelector("#logout-button");
+let myblog = document.getElementById("myblog");
 async function postsToInnerHtml() {
   let users = [];
   let posts = [];
@@ -14,7 +16,7 @@ async function postsToInnerHtml() {
       posts = data;
     });
   for (i = 0; i < posts.length; i++) {
-    imageUrls.push(`https://picsum.photos/id/${i}/300/200`);
+    imageUrls.push(`https://picsum.photos/id/${i}/800/600`);
   }
   function getUserFromId(id) {
     let currentUser = users.find((user) => user.id === id);
@@ -41,7 +43,7 @@ async function postsToInnerHtml() {
 
       upperDiv.append(postTitle);
       postBox.append(upperDiv);
-      
+
       let postBody = document.createElement("div");
       postBody.classList.add("post-body");
       postBody.innerText = post.body;
@@ -61,7 +63,7 @@ async function postsToInnerHtml() {
       readMoreBtn.innerText = "Read More";
 
       readMoreBtn.onclick = function () {
-        window.location.href = `detailedPost.html?UserId=${post.userId}&PostBody=${post.body}&PostTitle=${post.title}`;
+        window.location.href = `detailedPost.html?UserId=${post.userId}&PostBody=${post.body}&PostTitle=${post.title}&imageUrl=${imgDom.src}`;
       };
       lowerDiv.append(readMoreBtn);
       postsDiv.append(postBox);
@@ -77,7 +79,10 @@ function onloadPostHtml() {
   let preloader = document.getElementById("preloader");
   preloader.style.display = "none";
 }
-let myblog = document.getElementById("myblog");
+
 if (localStorage.getItem("loggedInUser") !== null) {
   myblog.removeAttribute("style", "display:hidden");
+  logOutBtn.removeAttribute("style", "display:hidden");
+  logInBtn.style.display = "none";
+  myForm.style.display = "none";
 }
